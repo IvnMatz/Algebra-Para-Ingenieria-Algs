@@ -7,6 +7,29 @@
 #include "mstructs.h"
 using namespace std;
 
+ProductoPunto prodPunto1( int v[3], int w[3] ){
+        //v.w = v1w1 + v2w2 + v3w3
+        //v.w = ||v|| ||w|| cos a
+        // cos a = (v.w) / ||v|| ||w||
+        constexpr double PI = 3.14159265358979323846;
+        int prodPunt = ( v[0] * w[0] ) + ( v[1] * w[1] ) + ( v[2] * w[2] );
+        float vmod, wmod;
+        vmod = sqrt( pow(v[0], 2) + pow(v[1], 2) + pow(v[2], 2) );
+        wmod = sqrt( pow(w[0], 2) + pow(w[1], 2) + pow(w[2], 2) );
+        float cosA = prodPunt / (vmod * wmod);
+        float acosA = acos(cosA);
+        
+        ProductoPunto pPunto;
+        pPunto.prodPunto = prodPunt;
+        pPunto.modV = vmod;
+        pPunto.modW = wmod;
+        pPunto.CosAng = cosA;
+        pPunto.AngRad = acosA;
+        pPunto.Angulo = acosA * 180.0/PI;
+
+        return(pPunto);
+}
+
 ProductoCruz prodCruz( int v[3], int w[3] ){
     /* 
      vxw =  | i   -j   k    |

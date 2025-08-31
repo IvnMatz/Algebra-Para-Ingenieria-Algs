@@ -6,11 +6,13 @@
 using namespace std;
 
 struct ProductoPunto{
-    string vectortxt;
     float prodPunto;
+    float modV;
+    float modW;
     float CosAng;
+    float AngRad;
     float Angulo;
-}
+};
 
 struct ProductoCruz{
     string vectortxt;
